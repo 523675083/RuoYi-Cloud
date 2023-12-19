@@ -3,7 +3,7 @@ server:
   port: 9201
 
 # Spring
-spring: 
+spring:
   application:
     # 应用名称
     name: ruoyi-system
@@ -14,12 +14,15 @@ spring:
     nacos:
       discovery:
         # 服务注册地址
-        server-addr: 127.0.0.1:8848
+        server-addr: 10.211.55.7:8848
       config:
         # 配置中心地址
-        server-addr: 127.0.0.1:8848
+        server-addr: 10.211.55.7:8848
         # 配置文件格式
         file-extension: yml
         # 共享配置
         shared-configs:
           - application-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
+logging:
+  file:
+    name: logs/${spring.application.name}/info.log
