@@ -67,7 +67,7 @@ create table QRTZ_SIMPLE_TRIGGERS (
 
 -- ----------------------------
 -- 4、 存储 Cron Trigger，包括 Cron 表达式和时区信息
--- ---------------------------- 
+-- ----------------------------
 create table QRTZ_CRON_TRIGGERS (
     sched_name           varchar(120)    not null            comment '调度名称',
     trigger_name         varchar(200)    not null            comment 'qrtz_triggers表trigger_name的外键',
@@ -80,7 +80,7 @@ create table QRTZ_CRON_TRIGGERS (
 
 -- ----------------------------
 -- 5、 Trigger 作为 Blob 类型存储(用于 Quartz 用户用 JDBC 创建他们自己定制的 Trigger 类型，JobStore 并不知道如何存储实例的时候)
--- ---------------------------- 
+-- ----------------------------
 create table QRTZ_BLOB_TRIGGERS (
     sched_name           varchar(120)    not null            comment '调度名称',
     trigger_name         varchar(200)    not null            comment 'qrtz_triggers表trigger_name的外键',
@@ -92,7 +92,7 @@ create table QRTZ_BLOB_TRIGGERS (
 
 -- ----------------------------
 -- 6、 以 Blob 类型存储存放日历信息， quartz可配置一个日历来指定一个时间范围
--- ---------------------------- 
+-- ----------------------------
 create table QRTZ_CALENDARS (
     sched_name           varchar(120)    not null            comment '调度名称',
     calendar_name        varchar(200)    not null            comment '日历名称',
@@ -102,7 +102,7 @@ create table QRTZ_CALENDARS (
 
 -- ----------------------------
 -- 7、 存储已暂停的 Trigger 组的信息
--- ---------------------------- 
+-- ----------------------------
 create table QRTZ_PAUSED_TRIGGER_GRPS (
     sched_name           varchar(120)    not null            comment '调度名称',
     trigger_group        varchar(200)    not null            comment 'qrtz_triggers表trigger_group的外键',
@@ -111,7 +111,7 @@ create table QRTZ_PAUSED_TRIGGER_GRPS (
 
 -- ----------------------------
 -- 8、 存储与已触发的 Trigger 相关的状态信息，以及相联 Job 的执行信息
--- ---------------------------- 
+-- ----------------------------
 create table QRTZ_FIRED_TRIGGERS (
     sched_name           varchar(120)    not null            comment '调度名称',
     entry_id             varchar(95)     not null            comment '调度器实例id',
@@ -131,7 +131,7 @@ create table QRTZ_FIRED_TRIGGERS (
 
 -- ----------------------------
 -- 9、 存储少量的有关 Scheduler 的状态信息，假如是用于集群中，可以看到其他的 Scheduler 实例
--- ---------------------------- 
+-- ----------------------------
 create table QRTZ_SCHEDULER_STATE (
     sched_name           varchar(120)    not null            comment '调度名称',
     instance_name        varchar(200)    not null            comment '实例名称',
@@ -142,7 +142,7 @@ create table QRTZ_SCHEDULER_STATE (
 
 -- ----------------------------
 -- 10、 存储程序的悲观锁的信息(假如使用了悲观锁)
--- ---------------------------- 
+-- ----------------------------
 create table QRTZ_LOCKS (
     sched_name           varchar(120)    not null            comment '调度名称',
     lock_name            varchar(40)     not null            comment '悲观锁名称',
@@ -151,7 +151,7 @@ create table QRTZ_LOCKS (
 
 -- ----------------------------
 -- 11、 Quartz集群实现同步机制的行锁表
--- ---------------------------- 
+-- ----------------------------
 create table QRTZ_SIMPROP_TRIGGERS (
     sched_name           varchar(120)    not null            comment '调度名称',
     trigger_name         varchar(200)    not null            comment 'qrtz_triggers表trigger_name的外键',
@@ -172,3 +172,5 @@ create table QRTZ_SIMPROP_TRIGGERS (
 ) engine=innodb comment = '同步机制的行锁表';
 
 commit;
+
+提交B
