@@ -7,6 +7,7 @@ services:
       context: ./nacos
     environment:
       - MODE=standalone
+      - TZ=Asia/Shanghai
     volumes:
       - ./nacos/logs/:/home/nacos/logs
       - ./nacos/conf/application.properties:/home/nacos/conf/application.properties
@@ -65,6 +66,8 @@ services:
       - ruoyi-gateway
     links:
       - ruoyi-gateway
+    environment:
+      - TZ=Asia/Shanghai
   ruoyi-gateway:
     container_name: ruoyi-gateway
     build:
@@ -87,6 +90,8 @@ services:
       - ruoyi-redis
     links:
       - ruoyi-redis
+    environment:
+      - TZ=Asia/Shanghai
   ruoyi-modules-system:
     container_name: ruoyi-modules-system
     build:
@@ -100,6 +105,8 @@ services:
     links:
       - ruoyi-redis
       - ruoyi-mysql
+    environment:
+      - TZ=Asia/Shanghai
   ruoyi-modules-gen:
     container_name: ruoyi-modules-gen
     build:
@@ -111,6 +118,8 @@ services:
       - ruoyi-mysql
     links:
       - ruoyi-mysql
+    environment:
+      - TZ=Asia/Shanghai
   ruoyi-modules-job:
     container_name: ruoyi-modules-job
     build:
@@ -122,6 +131,8 @@ services:
       - ruoyi-mysql
     links:
       - ruoyi-mysql
+    environment:
+      - TZ=Asia/Shanghai
   ruoyi-modules-file:
     container_name: ruoyi-modules-file
     build:
